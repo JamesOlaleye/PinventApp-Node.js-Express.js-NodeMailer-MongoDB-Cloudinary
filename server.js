@@ -11,7 +11,8 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 
 const app = express();
-
+dotenv();
+const origin = process.env.FRONTEND_URL;
 // Middlewares
 app.use(express.json());
 app.use(cookieParser());
@@ -19,7 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ['http://localhost:5173', 'https://pinvent-app-smoky.vercel.app'],
+    // origin: ['http://localhost:5173', 'https://pinvent-app-smoky.vercel.app'],
+    origin,
     credentials: true,
   })
 );
@@ -49,5 +51,3 @@ mongoose
     });
   })
   .catch((err) => console.log(err));
-
-  
