@@ -11,7 +11,6 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 
 const app = express();
-dotenv();
 const origin = process.env.FRONTEND_URL;
 // Middlewares
 app.use(express.json());
